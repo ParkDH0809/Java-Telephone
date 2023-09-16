@@ -11,6 +11,8 @@ public class InputValidation {
 
         if(matcher.matches()) {
             System.out.println("pass");
+        } else {
+            System.out.println("non pass");
         }
         return number;
     }

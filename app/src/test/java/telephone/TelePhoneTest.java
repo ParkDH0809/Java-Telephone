@@ -9,7 +9,6 @@ public class TelePhoneTest {
     @Test
     void TelePhoneNumberTest() {
         //given
-        final TelePhone telePhone = new TelePhone("010-0000-0000");
         //when
 
         //then
