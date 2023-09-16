@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class InputValidation {
     
     public static String validateTelephoneNumber(String number) {
-        Pattern pattern = Pattern.compile("/^\\d{3}-\\d{3,4}-\\d{4}");
+        Pattern pattern = Pattern.compile("^\\d{3}-\\d{3,4}-\\d{4}$");
         Matcher matcher = pattern.matcher(number);
 
         if(matcher.matches()) {
