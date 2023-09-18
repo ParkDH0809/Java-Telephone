@@ -11,12 +11,15 @@ public class Controller {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
+        String number = null;
         outputView.startProgram();
         
         try {
-            inputView.inputTelephoneNumber();
+            number = inputView.inputTelephoneNumber();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        outputView.printInputTelephoneNumber(number);
     }
 }
