@@ -1,5 +1,6 @@
 package telephone.validation;
 
+import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,11 +10,10 @@ public class InputValidation {
         Pattern pattern = Pattern.compile("^\\d{3}-\\d{3,4}-\\d{4}$");
         Matcher matcher = pattern.matcher(number);
 
-        if(matcher.matches()) {
-            System.out.println("pass");
-        } else {
-            System.out.println("non pass");
-        }
+        if(!matcher.matches()) {
+            throw new InputMismatchException("전화번호를 잘못 입력하였습니다.");
+        } 
+        
         return number;
     }
 }
