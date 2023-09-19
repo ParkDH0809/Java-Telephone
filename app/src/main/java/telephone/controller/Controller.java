@@ -1,7 +1,5 @@
 package telephone.controller;
 
-import java.io.IOException;
-
 import telephone.view.InputView;
 import telephone.view.OutputView;
 
@@ -14,22 +12,13 @@ public class Controller {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
-        int inputNumber = 0;
         outputView.startProgram();
-        
-        try {
-            inputNumber = inputView.selectNumber();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        workSelectedNumber(inputNumber);
-
+        workSelectedNumber(inputView.selectNumber());
     }
 
     public void workSelectedNumber(int inputNumber) {
         if(inputNumber == INPUT_TELEPHONE_NUMBER) {
-
+            inputTelephoneNumber();
         }
 
         if(inputNumber == SHOW_ALL_TEHEPHONE_NUMBER) {
@@ -39,6 +28,11 @@ public class Controller {
         if(inputNumber == SEARCH_TELEPHONW_NUMBER) {
 
         }
+    }
+
+    public void inputTelephoneNumber() {
+        inputView.inputTelephoneNumber();
+        
     }
 
     public void showTelephoneNumber() {
