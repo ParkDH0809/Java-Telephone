@@ -1,6 +1,5 @@
 package telephone.validation;
 
-import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,7 +7,7 @@ import telephone.constants.ExceptionMessage;
 
 public class InputValidation {
     private static final int MINIMUM_SELECT_NUMBER = 1;
-    private static final int MAXIMUM_SELECT_NUMBER = 1;
+    private static final int MAXIMUM_SELECT_NUMBER = 3;
 
 
     public static String validateTelephoneNumber(String number) {
@@ -16,7 +15,7 @@ public class InputValidation {
         Matcher matcher = pattern.matcher(number);
 
         if(!matcher.matches()) {
-            throw new InputMismatchException("전화번호를 잘못 입력하였습니다.");
+            ExceptionMessage.MISS_INPUT_TELEPHONE_NUMBER.throwException();
         } 
 
         return number;
