@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import telephone.constants.ExceptionMessage;
 
 public class InputValidation {
-    private static final int MINIMUM_SELECT_NUMBER = 1;
+    private static final int MINIMUM_SELECT_NUMBER = 0;
     private static final int MAXIMUM_SELECT_NUMBER = 3;
 
     public static int validateSelectNumber(int number) {
