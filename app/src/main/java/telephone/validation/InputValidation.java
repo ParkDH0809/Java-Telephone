@@ -10,6 +10,7 @@ public class InputValidation {
     private static final int MAXIMUM_SELECT_NUMBER = 3;
 
     public static int validateSelectNumber(int number) {
+
         if(number < MINIMUM_SELECT_NUMBER) {
             ExceptionMessage.SELECT_NUMBER_LESS_THAN_MINIMUM_NUMBER.throwException();
         }
@@ -17,13 +18,16 @@ public class InputValidation {
         if(number > MAXIMUM_SELECT_NUMBER) {
             ExceptionMessage.SELECT_NUMBER_OVER_THAN_MAXIMUM_NUMBER.throwException();
         }
+
         return number;
     }
 
     public static String validateName(String name) {
-        if(name == null) {
+
+        if(name.length() == 0) {
             ExceptionMessage.INPUT_NAME_IS_NULL.throwException();
         }
+
         return name;
     }
 
@@ -36,5 +40,14 @@ public class InputValidation {
         } 
 
         return number;
+    }
+
+    public static String validateSearchString(String searchString) {
+        
+        if(searchString == null) {
+            ExceptionMessage.INPUT_SEARCH_STRING_IS_NULL.throwException();
+        }
+
+        return searchString;
     }
 }

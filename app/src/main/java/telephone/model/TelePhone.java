@@ -1,11 +1,11 @@
 package telephone.model;
 
-public class TelePhone {
+public class Telephone {
 
     String name;
     String telephoneNumber;
 
-    public TelePhone(String name, String telephoneNumber) {
+    public Telephone(String name, String telephoneNumber) {
         this.name = name;
         this.telephoneNumber = telephoneNumber;
     }

@@ -1,7 +1,7 @@
 package telephone.controller;
 
-import telephone.model.TelePhone;
-import telephone.model.TelePhones;
+import telephone.model.Telephone;
+import telephone.model.Telephones;
 import telephone.view.InputView;
 import telephone.view.OutputView;
 
@@ -15,7 +15,7 @@ public class Controller {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
-        TelePhones telephones =  new TelePhones();
+        Telephones telephones =  new Telephones();
         outputView.startProgram();
 
         while(true) {
@@ -25,7 +25,7 @@ public class Controller {
         }
     }
 
-    public int workSelectedNumber(int inputNumber, TelePhones telehones) {
+    public int workSelectedNumber(int inputNumber, Telephones telehones) {
         if(inputNumber == PROGRAM_END_NUMBER) {
             endProgram();
         }
@@ -39,7 +39,7 @@ public class Controller {
         }
 
         if(inputNumber == SEARCH_TELEPHONE_NUMBER) {
-
+            searchTelephoneInfo(telehones);
         }
 
         return inputNumber;
@@ -49,15 +49,26 @@ public class Controller {
         outputView.endProgram();
     }
 
-    public void inputTelephoneInfo(TelePhones telephones) {
-        telephones.addTelephone(new TelePhone(inputView.inputName(), inputView.inputTelephoneNumber()));
+    public void inputTelephoneInfo(Telephones telephones) {
+        telephones.addTelephone(new Telephone(inputView.inputName(), inputView.inputTelephoneNumber()));
         outputView.printInputInfoCompleted();
     }
 
-    public void showTelephoneNumber(TelePhones telePhones) {
-        for(TelePhone telephone : telePhones.getTelePhones()) {
+    public void showTelephoneNumber(Telephones telephones) {
+        for(Telephone telephone : telephones.getTelephones()) {
             outputView.printInputTelephoneNumber(telephone);
         }
+    }
+
+    public void searchTelephoneInfo(Telephones telephones) {
+        String searchString = inputView.inputSearchString();
+        for(Telephone telephone : telephones.getTelephones()) {
+            checkTelephoneInfo(telephone, searchString);
+        }
+
+    }
+
+    public void checkTelephoneInfo(Telephone telephone, String searchString) {
         
     }
 }
