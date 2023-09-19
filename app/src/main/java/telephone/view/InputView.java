@@ -14,7 +14,7 @@ public class InputView {
 
     private static final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public int selectNumber() {
+    public int selectNumber() throws IOException {
         System.out.println(SELECT_NUMBER + "\n" + INPUT_SELECT_NUMBER);
         return InputValidation.validateSelectNumber(Integer.parseInt(bufferedReader.readLine()));
     }
