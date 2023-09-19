@@ -16,7 +16,10 @@ public class OutputView {
     }
 
     public void printInputTelephoneNumber(TelePhone telephone) {
-        System.out.println(PRINT_INPUT_TELEPONE_INFO);
         System.out.println(telephone.toString());
+    }
+
+    public void printInputInfoCompleted() {
+        System.out.println(PRINT_INPUT_TELEPONE_INFO);
     }
 }

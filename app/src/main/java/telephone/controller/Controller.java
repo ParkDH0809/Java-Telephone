@@ -15,26 +15,27 @@ public class Controller {
     OutputView outputView = new OutputView();
 
     public void startProgram() {
+        TelePhones telephones =  new TelePhones();
         outputView.startProgram();
 
         while(true) {
-            if(workSelectedNumber(inputView.selectNumber()) == 0) {
+            if(workSelectedNumber(inputView.selectNumber(), telephones) == 0) {
                 break;
             }
         }
     }
 
-    public int workSelectedNumber(int inputNumber) {
+    public int workSelectedNumber(int inputNumber, TelePhones telehones) {
         if(inputNumber == PROGRAM_END_NUMBER) {
             endProgram();
         }
 
         if(inputNumber == INPUT_TELEPHONE_NUMBER) {
-            inputTelephoneInfo();
+            inputTelephoneInfo(telehones);
         }
 
         if(inputNumber == SHOW_ALL_TEHEPHONE_NUMBER) {
-            showTelephoneNumber();
+            showTelephoneNumber(telehones);
         }
 
         if(inputNumber == SEARCH_TELEPHONE_NUMBER) {
@@ -48,13 +49,12 @@ public class Controller {
         outputView.endProgram();
     }
 
-    public void inputTelephoneInfo() {
-        TelePhones telephones = new TelePhones();
+    public void inputTelephoneInfo(TelePhones telephones) {
         telephones.addTelephone(new TelePhone(inputView.inputName(), inputView.inputTelephoneNumber()));
+        outputView.printInputInfoCompleted();
     }
 
-    public void showTelephoneNumber() {
-        TelePhones telePhones = new TelePhones();
+    public void showTelephoneNumber(TelePhones telePhones) {
         for(TelePhone telephone : telePhones.getTelePhones()) {
             outputView.printInputTelephoneNumber(telephone);
         }
