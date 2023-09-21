@@ -2,6 +2,7 @@ package telephone.controller;
 
 import telephone.model.Telephone;
 import telephone.model.Telephones;
+import telephone.service.TelephoneSearchService;
 import telephone.view.InputView;
 import telephone.view.OutputView;
 
@@ -13,7 +14,7 @@ public class Controller {
 
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
-
+    TelephoneSearchService telephoneSearchService = new TelephoneSearchService();
     public void startProgram() {
         Telephones telephones =  new Telephones();
         outputView.startProgram();
@@ -62,13 +63,6 @@ public class Controller {
 
     public void searchTelephoneInfo(Telephones telephones) {
         String searchString = inputView.inputSearchString();
-        for(Telephone telephone : telephones.getTelephones()) {
-            checkTelephoneInfo(telephone, searchString);
-        }
-
-    }
-
-    public void checkTelephoneInfo(Telephone telephone, String searchString) {
-        
+        outputView.printTelephoneSearchResult(telephoneSearchService.searchTelephones(telephones, searchString));
     }
 }
