@@ -15,8 +15,21 @@ public class TelePhoneTest {
     void TelePhoneNumberValidationTest() {
         InputValidation inputValidation = new InputValidation();
 
-        Assertions.assertThrows(InputMismatchException.class, () -> {
-            inputValidation.validateTelephoneNumber("010-0000-0000");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            inputValidation.validateTelephoneNumber("00-0000-0000");
+            inputValidation.validateTelephoneNumber("010-000-0000");
+            inputValidation.validateTelephoneNumber("010-000-000");
+            inputValidation.validateTelephoneNumber("010-0000-000");
+            inputValidation.validateTelephoneNumber("010-000-00000");
+        });
+    }
+
+    @DisplayName("이름 입력값 테스트 - 입력값이 없는 경우")
+    @Test
+    void TelephoneNameValidationTest() {
+        InputValidation inputValidation = new InputValidation();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            inputValidation.validateName("");
         });
     }
 }
