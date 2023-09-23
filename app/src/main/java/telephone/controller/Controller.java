@@ -15,13 +15,19 @@ public class Controller {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     TelephoneSearchService telephoneSearchService = new TelephoneSearchService();
+
     public void startProgram() {
         Telephones telephones =  new Telephones();
         outputView.startProgram();
 
         while(true) {
-            if(workSelectedNumber(inputView.selectNumber(), telephones) == 0) {
-                break;
+            try {
+                if(workSelectedNumber(inputView.selectNumber(), telephones) == 0) {
+                    break;
+                }
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                continue;
             }
         }
     }

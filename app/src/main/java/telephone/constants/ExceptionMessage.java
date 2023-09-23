@@ -8,12 +8,12 @@ public enum ExceptionMessage {
     INPUT_SEARCH_STRING_IS_NULL("검색어를 입력해주세요.");
     
     private final String exceptionMessage;
-
+    private final String ERROR = "[ERROR]";
     ExceptionMessage(String exceptionMessage) {
         this.exceptionMessage = exceptionMessage;
     }
     
     public void throwException() {
-        throw new IllegalArgumentException(exceptionMessage);
+        throw new IllegalArgumentException(ERROR + " " + exceptionMessage);
     }
 }
